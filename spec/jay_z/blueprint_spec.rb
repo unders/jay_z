@@ -123,6 +123,10 @@ describe JayZ::Blueprint do
     it "returns the correct object" do
       JayZ::User.make.new.must_be_instance_of(User)
     end
+
+    it "populates the returned object with the defined values" do
+      JayZ::User.make.new.name.must_equal 'Anders'
+    end
   end
 
   describe "when a message is sent to the instance" do
@@ -130,10 +134,9 @@ describe JayZ::Blueprint do
       JayZ::User.default do
         name { 'Anders' }
       end
-      @jayz_user = JayZ::User.make
     end
     it "delegates that message" do
-      @jayz_user.save.must_equal 1
+      JayZ::User.make.save.must_equal 1
     end
   end
 
@@ -147,7 +150,7 @@ describe JayZ::Blueprint do
       end
     end
 
-    it "executes the block when called" do
+    it "executes the defined block when its method is called" do
       User.counter.must_equal nil
       JayZ::Comment.default
       User.counter.must_equal  1
