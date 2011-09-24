@@ -50,13 +50,13 @@ describe JayZ do
     end
 
     describe "blueprint proxy object" do
-      it "delegates all messages" do
+      it "delegate all messages" do
         Post.make.save.must_equal 'save in post called'
       end
     end
 
     describe "before it delegates a message" do
-      it "populates the receiver with the values from the blueprint" do
+      it "populates the receiver with values from the blueprint" do
         Post.make.save!.body.must_equal 'I am a default post body'
       end
     end
@@ -67,7 +67,7 @@ describe JayZ do
         @video.url.must_equal 'http://www.youtube.com/watch?v=g5950v0kTJg'
       end
 
-      it %q{populates the receiver with values from default block if not
+      it %q{populates the receiver with values from the default block if not
             defined in video block} do
         @video.body.must_equal 'I am a default post body'
       end
