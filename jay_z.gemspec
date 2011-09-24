@@ -13,7 +13,9 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "jay_z"
 
-  s.files         = `git ls-files`.split("\n")
+  example_files   = `git ls-files -- example`.split("\n")
+  no_gem_files    = example_files + %w[.gitignore .rvmrc]
+  s.files         = `git ls-files`.split("\n") - no_gem_files
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map do |f|
                       File.basename(f)
