@@ -7,7 +7,7 @@ describe JayZ::Ghost do
   end
 
   describe "#keys" do
-    it "returns a collection of all methods sent to the object" do
+    it "returns a collection of all messages sent to the object" do
       @ghost.title { 'block' }
       @ghost.body { 'block' }
       @ghost.keys.must_equal [:title, :body]
