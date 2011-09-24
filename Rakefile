@@ -9,6 +9,8 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
+task :default => :test
+
 desc  "open console (require 'jay_z')"
 task :c do
   system "irb -I lib -r jay_z"
