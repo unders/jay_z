@@ -39,11 +39,11 @@ end
 
 describe JayZ do
   describe  "when extending a class with the JayZ module" do
-    it "adds a #make method" do
+    it "adds a .make method" do
       Post.make.must_be_instance_of(JayZ::Post)
     end
 
-    describe "#make" do
+    describe ".make" do
       it "creates a blueprint proxy object" do
         Post.make.must_be_instance_of(JayZ::Post)
       end
