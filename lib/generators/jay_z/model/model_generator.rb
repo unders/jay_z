@@ -18,7 +18,7 @@ module JayZ
 
       def code
       %Q{\n
-  class #{class_name} < Blueprint
+  class #{class_name} < Blueprint(ActiveRecord)
     default do
       #{attributes.map { |a| "#{a.name} { #{a.default.inspect} }" }.join("\n      ")}
     end

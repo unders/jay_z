@@ -3,7 +3,7 @@ module JayZ
   # Add your blueprints here.
   #
   # e.g.
-  #    class User < Blueprint
+  #    class User < Blueprint(ActiveRecord)
   #      default do
   #        name { "Anders" }
   #        admin { false }
@@ -14,10 +14,10 @@ module JayZ
   #      end
   #    end
   #
-  #    class Post < Blueprint
+  #    class Post < Blueprint(ActiveRecord)
   #      default do
-  #        title { Post "Post #{sn}" }
-  #        Body  { "Lorem ipsum...#" }
+  #        title { "Post #{sn}" }
+  #        body  { "Lorem ipsum...#" }
   #      end
   #    end
 end

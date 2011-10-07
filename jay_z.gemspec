@@ -12,6 +12,9 @@ Gem::Specification.new do |s|
   s.description = %q{A model factory. Say no to fixtures.}
 
   s.rubyforge_project = "jay_z"
+  s.add_development_dependency "activerecord", "~> 3.1.0"
+  s.add_development_dependency "railties", "~> 3.1.0"
+  s.add_development_dependency "sqlite3", "~> 1.3.4"
 
   example_files   = `git ls-files -- example`.split("\n")
   no_gem_files    = example_files + %w[.gitignore .rvmrc]
