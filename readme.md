@@ -26,7 +26,7 @@ Install as a gem:
 
     gem install jay_z
 
-Install in Rails with Active Record orm:
+Install in Rails with ActiveRecord orm:
 
     group :development, :test do
       gem 'jay_z', :require => 'jay_z/active_record'
