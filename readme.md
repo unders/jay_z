@@ -33,7 +33,7 @@ Rails and ActiveRecord
 
 It adds `bluprint.rb` file to test or spec directory.
 
-`Update these files`
+Update these files
 
 Gemfile
 
