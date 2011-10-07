@@ -1,7 +1,5 @@
 JayZ
-====
-
-* [![Stillmaintained](http://stillmaintained.com/unders/jay_z.png)](http://stillmaintained.com/unders/jay_z)
+==== [![Stillmaintained](http://stillmaintained.com/unders/jay_z.png)](http://stillmaintained.com/unders/jay_z)
 * http://github.com/unders/jay_z
 * [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
 * [GemTesters](http://test.rubygems.org/gems/jay_z)
