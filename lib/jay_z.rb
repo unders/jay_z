@@ -18,7 +18,7 @@ module JayZ
       if @object.valid?
         @object
       else
-        raise ActiveRecord::RecordInvalid.new(@object)
+        fail ::ActiveRecord::RecordInvalid.new(@object)
       end
     end
 
