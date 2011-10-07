@@ -30,10 +30,10 @@ Rails and ActiveRecord
 ----------------------
 
 1. `rails g jay_z:install`
-It adds `bluprint.rb` file to test or spec directory.
+  It adds `bluprint.rb` file to test or spec directory.
 
 2. Update these files
-Gemfile
+  Gemfile
 
     group :development, :test do
       gem 'jay_z', :require => 'jay_z/active_record'
@@ -46,7 +46,7 @@ config/application.rb**
     end
 
 3. `g generate model Comment post_id:integer body:text`
-It adds to the end of `(spec|test)/blueprint.rb`
+  It adds to the end of `(spec|test)/blueprint.rb`
 
     class Comment < Blueprint(ActiveRecord)
       default do
