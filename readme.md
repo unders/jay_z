@@ -29,11 +29,11 @@ Install as a gem:
 Rails and ActiveRecord
 ----------------------
 
-**rails g jay_z:install**
+`rails g jay_z:install`
 
 It adds `bluprint.rb` file to test or spec directory.
 
-**Update these files**
+`Update these files`
 
 Gemfile
 
@@ -49,7 +49,7 @@ config/application.rb
 
 then you can generate a model.
 
-**g generate model Comment post_id:integer body:text**
+`g generate model Comment post_id:integer body:text`
 
 It adds to the end of `(spec|test)/blueprint.rb`
 
