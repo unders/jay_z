@@ -49,9 +49,9 @@ describe JayZ::Blueprint do
     end
   end
 
-  describe ".set" do
+  describe ".define" do
     before do
-      JayZ::Comment.set(:admin) do
+      JayZ::Comment.define(:admin) do
         user { JayZ::User.make(:name => 'Anders Admin').new }
       end
     end
@@ -79,17 +79,17 @@ describe JayZ::Blueprint do
         user { User.make(:name => 'Anders Default').new }
         body { 'I am defined in default' }
       end
-      JayZ::Comment.set(:spam) do
+      JayZ::Comment.define(:spam) do
         user { User.make(:name => 'Anders Spam').new }
       end
     end
 
-    describe "when .set(:spam) has not defined the method in its block" do
+    describe "when .define(:spam) has not defined the method in its block" do
       it "returns the body defined in the default block" do
         JayZ::Comment.spam[:body].must_equal 'I am defined in default'
       end
     end
-    describe "when .set(:spam) has defined the method in its block" do
+    describe "when .define(:spam) has defined the method in its block" do
       it "returns the value from the spam block" do
         JayZ::Comment.spam[:user].name.must_equal 'Anders Spam'
       end
@@ -101,7 +101,7 @@ describe JayZ::Blueprint do
       JayZ::User.default do
         name { "User #{sn}" }
       end
-      JayZ::User.set(:admin) do
+      JayZ::User.define(:admin) do
         name { "Admin #{sn}" }
       end
     end

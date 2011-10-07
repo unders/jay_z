@@ -9,7 +9,7 @@ module JayZ
   #        admin { false }
   #      end
   #
-  #      set(:admin) do
+  #      define(:admin) do
   #        admin { true }
   #      end
   #    end

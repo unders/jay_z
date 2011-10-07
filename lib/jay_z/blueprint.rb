@@ -22,7 +22,7 @@ module JayZ
       end
     end
 
-    def set(method, &block)
+    def define(method, &block)
       ghosts[method] = Ghost.new(serial_number).instance_eval(&block)
       self.class.send(:define_method, method) do |options={}|
         hash = options.merge({})

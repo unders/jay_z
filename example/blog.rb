@@ -9,7 +9,7 @@ module JayZ
       body { "I am a default post body" }
     end
 
-    set(:video) do
+    define(:video) do
       author { Author.make(:name => 'Anders defined in video').save }
       url { 'http://www.youtube.com/watch?v=g5950v0kTJg' }
     end
