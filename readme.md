@@ -35,13 +35,13 @@ It adds `bluprint.rb` file to test or spec directory.
 
 2. Update these files
 
-2.1 Gemfile
+Gemfile
 
     group :development, :test do
       gem 'jay_z', :require => 'jay_z/active_record'
     end
 
-2.2 config/application.rb**
+config/application.rb**
 
     config.generators do |g|
       g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
