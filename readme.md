@@ -6,8 +6,6 @@ JayZ
 * [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
 * [GemTesters](http://test.rubygems.org/gems/jay_z)
 
-[tadpole](http://github.com/lsegal/tadpole)
-
 Description:
 -----------
 
@@ -30,9 +28,9 @@ Install as a gem:
     gem install jay_z
 
 Install in Rails with Active Record orm:
- group :development, :test do
-  gem 'jay_z', :require => 'jay_z/active_record'
-end
+    group :development, :test do
+      gem 'jay_z', :require => 'jay_z/active_record'
+    end
 
 How to test the installed Gem
 
