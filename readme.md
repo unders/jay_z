@@ -29,15 +29,15 @@ Install as a gem:
 Rails and ActiveRecord
 ----------------------
 
-1.    rails generate jay_z:install
-
-    It adds `blueprint.rb` file to test or spec directory.
-
-2.    Update Gemfile
+1.    Update Gemfile
 
         group :development, :test do
           gem 'jay_z', :require => 'jay_z/active_record'
         end
+
+2.    `rails generate jay_z:install`
+
+    It adds `blueprint.rb` file to test or spec directory.
 
 3.    Update config/application.rb
 
@@ -45,7 +45,7 @@ Rails and ActiveRecord
           g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
         end
 
-4.    rails generate model Comment post_id:integer body:text
+4.    `rails generate model Comment post_id:integer body:text`
 
     It adds to the end of `(spec|test)/blueprint.rb`
 
