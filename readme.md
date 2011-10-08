@@ -29,36 +29,32 @@ Install as a gem:
 Rails and ActiveRecord
 ----------------------
 
-`rails g jay_z:install`
+1.    rails generate jay_z:install
 
-It adds `bluprint.rb` file to test or spec directory.
+    It adds `blueprint.rb` file to test or spec directory.
 
-Update these files
+2.    Update Gemfile
 
-Gemfile
+        group :development, :test do
+          gem 'jay_z', :require => 'jay_z/active_record'
+        end
 
-    group :development, :test do
-      gem 'jay_z', :require => 'jay_z/active_record'
-    end
+3.    Update config/application.rb
 
-config/application.rb
+        config.generators do |g|
+          g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
+        end
 
-    config.generators do |g|
-      g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
-    end
+4.    rails generate model Comment post_id:integer body:text
 
-then you can generate a model.
+    It adds to the end of `(spec|test)/blueprint.rb`
 
-`g generate model Comment post_id:integer body:text`
-
-It adds to the end of `(spec|test)/blueprint.rb`
-
-    class Comment < Blueprint(ActiveRecord)
-      default do
-        post { Post.make.save }
-        body { "MyText" }
-      end
-    end
+        class Comment < Blueprint(ActiveRecord)
+          default do
+            post_id { 1 }
+            body { "MyText" }
+          end
+        end
 
 How to test the installed Gem
 -------------------------
