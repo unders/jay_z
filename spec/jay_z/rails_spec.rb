@@ -119,6 +119,7 @@ describe ActiveRecord do
   describe 'makes fields uniq with #{sn}' do
     before do
       user = Author.make.save
+      @post_count = Post.count
       @post1 = Post.make(:author => user).save
       @post2 = Post.make(:author => user).save
       @post3 = Post.make(:author => user).save
@@ -130,7 +131,7 @@ describe ActiveRecord do
       @post2.valid?.must_equal true
       @post3.valid?.must_equal true
       @post4.valid?.must_equal true
-      Post.count.must_equal 4
+      Post.count.must_equal (@post_count + 4)
     end
 
     after do

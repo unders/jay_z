@@ -151,7 +151,6 @@ describe JayZ::Blueprint do
     end
 
     it "executes the defined block when its method is called" do
-      User.counter.must_equal nil
       JayZ::Comment.default
       User.counter.must_equal  1
     end
