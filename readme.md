@@ -4,6 +4,7 @@ JayZ [![Stillmaintained](http://stillmaintained.com/unders/jay_z.png)](http://st
 * http://github.com/unders/jay_z
 * [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
 * [GemTesters](http://test.rubygems.org/gems/jay_z)
+* [JayZ @ Rubygems](http://rubygems.org/gems/jay_z)
 
 Description:
 -----------
@@ -14,7 +15,7 @@ Documentation is available at [rubydoc](http://rubydoc.info/gems/jay_z)
 Compatibility
 -------------
 
-Ruby version 1.9.2 and Rails version 3.1
+Ruby version 1.9.2 and 1.9.3 and Rails version 3.1
 
 [GemTesters](http://test.rubygems.org/gems/jay_z) has
  more information on which platform the Gem is tested.
@@ -32,7 +33,7 @@ Rails and ActiveRecord
 1.    Update Gemfile
 
         group :development, :test do
-          gem 'jay_z', :require => 'jay_z/active_record'
+          gem 'jay_z', :require => 'jay_z/rails'
         end
 
 2.    `rails generate jay_z:install`
