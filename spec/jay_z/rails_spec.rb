@@ -2,7 +2,7 @@
 
 require 'rails/railtie'
 require 'active_record'
-require 'jay_z/active_record'
+require 'jay_z/rails'
 require 'minitest/autorun'
 
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3",
