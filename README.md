@@ -38,9 +38,9 @@ Examples
 
 1. Update Gemfile
 
-       group :development, :test do
-         gem 'jay_z', :require => 'jay_z/rails'
-       end
+        group :development, :test do
+          gem 'jay_z', :require => 'jay_z/rails'
+        end
 
 2. `rails generate jay_z:install`
 
