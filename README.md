@@ -1,10 +1,13 @@
-JayZ [![Stillmaintained](http://stillmaintained.com/unders/jay_z.png)](http://stillmaintained.com/unders/jay_z)
+JayZ [![Stillmaintained](http://stillmaintained.com/unders/jay_z.png)](http://stillmaintained.com/unders/jay_z) [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
 ====
 
-* http://github.com/unders/jay_z
-* [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
-* [GemTesters](http://test.rubygems.org/gems/jay_z)
+
+Where
+-----
+* [JayZ @ Github](http://github.com/unders/jay_z)
+* [JayZ @ GemTesters](http://test.rubygems.org/gems/jay_z)
 * [JayZ @ Rubygems](http://rubygems.org/gems/jay_z)
+* [JayZ @ Rubydoc](http://rubydoc.info/gems/jay_z)
 
 Description:
 -----------
@@ -18,17 +21,20 @@ Compatibility
 Ruby version 1.9.2 and 1.9.3 and Rails version 3.1
 
 [GemTesters](http://test.rubygems.org/gems/jay_z) has
- more information on which platform the Gem is tested.
+ more information on which platforms the Gem is tested.
 
-Install
--------
+Installation
+------------
 
 Install as a gem:
 
     gem install jay_z
 
-Rails and ActiveRecord
-----------------------
+Examples
+-------
+
+**Rails, ActiveRecord and minitest**
+
 
 1.    Update Gemfile
 
@@ -56,6 +62,31 @@ Rails and ActiveRecord
             body { "MyText" }
           end
         end
+
+5.    Modify the generated blueprint according to your preferences
+
+        class Comment < Blueprint(ActiveRecord)
+	       default do
+		      post { Post.make.save }
+		      body { "MyText" }
+	       end
+        end
+
+6.   Write tests in test/comment_test.rb
+
+        require "minitest_helper"
+
+        class CommentTest < MiniTest::Rails::Model
+  		    before do
+    	      @comment = Comment.make.new
+  		    end
+
+  		    it "must be valid" do
+    	  	  @comment.valid?.must_equal true
+  		    end
+        end
+
+
 
 How to test the installed Gem
 -------------------------
