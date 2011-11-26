@@ -42,19 +42,25 @@ Examples
           gem 'jay_z', :require => 'jay_z/rails'
         end
 
-2. `rails generate jay_z:install`
+2. Install the gem
 
-    It adds `blueprint.rb` file to test or spec directory.
+        $ bundle install
 
-3. Update config/application.rb
+3. Generate (test|spec)/blueprint.rb file
+
+        $ rails generate jay_z:install
+
+4. Update config/application.rb
 
         config.generators do |g|
           g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
         end
 
-4. `rails generate model Comment post_id:integer body:text`
+5. Generate a model object with its factory
 
-    It adds to the end of `(spec|test)/blueprint.rb`
+        $ rails generate model Comment post_id:integer body:text
+
+6. It adds to the end of file (test|spec)/blueprint.rb
 
         class Comment < Blueprint(ActiveRecord)
           default do
@@ -63,7 +69,7 @@ Examples
           end
         end
 
-5. Modify the generated blueprint according to your preferences
+7. Modify the generated blueprint according to your preferences
 
         class Comment < Blueprint(ActiveRecord)
           default do
@@ -72,7 +78,7 @@ Examples
           end
         end
 
-6. Write tests in test/comment_test.rb
+8. Write tests in test/comment_test.rb
 
         require "minitest_helper"
 
