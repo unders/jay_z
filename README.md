@@ -36,23 +36,23 @@ Examples
 **Rails, ActiveRecord and minitest**
 
 
-1.    Update Gemfile
+1. Update Gemfile
 
-        group :development, :test do
-          gem 'jay_z', :require => 'jay_z/rails'
-        end
+       group :development, :test do
+         gem 'jay_z', :require => 'jay_z/rails'
+       end
 
-2.    `rails generate jay_z:install`
+2. `rails generate jay_z:install`
 
     It adds `blueprint.rb` file to test or spec directory.
 
-3.    Update config/application.rb
+3. Update config/application.rb
 
         config.generators do |g|
           g.test_framework :mini_test, :spec => true, :fixture_replacement => :jay_z
         end
 
-4.    `rails generate model Comment post_id:integer body:text`
+4. `rails generate model Comment post_id:integer body:text`
 
     It adds to the end of `(spec|test)/blueprint.rb`
 
@@ -63,27 +63,27 @@ Examples
           end
         end
 
-5.    Modify the generated blueprint according to your preferences
+5. Modify the generated blueprint according to your preferences
 
         class Comment < Blueprint(ActiveRecord)
-	       default do
-		      post { Post.make.save }
-		      body { "MyText" }
-	       end
+          default do
+            post { Post.make.save }
+            body { "MyText" }
+          end
         end
 
-6.   Write tests in test/comment_test.rb
+6. Write tests in test/comment_test.rb
 
         require "minitest_helper"
 
         class CommentTest < MiniTest::Rails::Model
-  		    before do
-    	      @comment = Comment.make.new
-  		    end
+          before do
+            @comment = Comment.make.new
+          end
 
-  		    it "must be valid" do
-    	  	  @comment.valid?.must_equal true
-  		    end
+          it "must be valid" do
+            @comment.valid?.must_equal true
+          end
         end
 
 
