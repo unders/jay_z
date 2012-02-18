@@ -56,7 +56,10 @@ module JayZ
     def initialize(*args)
       symbol = args.first.is_a?(Symbol) ? args.first : :default
       options = args.last.is_a?(Hash) ? args.pop : {}
-      @object = Kernel.const_get(self.class.name.sub('JayZ::', '')).new
+      klass_names = self.class.name.sub('JayZ::', '').split('::')
+      @object = klass_names.inject(Kernel) do |klass_level, name|
+        klass_level.const_get(name)
+      end.new
 
       self.class.send(symbol, options).each do |key, value|
         @object.send("#{key}=", value)

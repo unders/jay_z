@@ -62,7 +62,7 @@ Examples
 
 6. It adds to the end of file (test|spec)/blueprint.rb
 
-        class Comment < Blueprint(ActiveRecord)
+        class Comment < Blueprint(ProxyMethods)
           default do
             post_id { 1 }
             body { "MyText" }
@@ -71,7 +71,7 @@ Examples
 
 7. Modify the generated blueprint according to your preferences
 
-        class Comment < Blueprint(ActiveRecord)
+        class Comment < Blueprint(ProxyMethods)
           default do
             post { Post.make.save }
             body { "MyText" }

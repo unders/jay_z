@@ -17,6 +17,12 @@ ActiveRecord::Schema.define do
   create_table :authors do |t|
     t.string :name
   end
+  create_table :author_users do |t|
+    t.string :name
+  end
+  create_table :bars do |t|
+    t.string :name
+  end
 end
 
 class Post < ActiveRecord::Base
@@ -28,26 +34,49 @@ end
 
 class Author < ActiveRecord::Base
   validates_presence_of :name
+  class User < ActiveRecord::Base
+    validates_presence_of :name
+  end
+end
+
+module Foo
+  class Bar < ActiveRecord::Base
+    validates_presence_of :name
+  end
 end
 
 # blueprint.rb
 module JayZ
-  class Author < Blueprint(ActiveRecord)
+  class Author < Blueprint(ProxyMethods)
     default do
       name { "Anders" }
     end
+
+    class User < JayZ::Blueprint(ProxyMethods)
+      default do
+        name { "Anders is the user" }
+      end
+    end
   end
 
-  class Post < Blueprint(ActiveRecord)
+  class Post < Blueprint(ProxyMethods)
     default do
       title  { "Post #{sn}" }
       body   { "Lorem ipsum..." }
       author { Author.make.save }
     end
   end
+
+  module Foo
+    class Bar < JayZ::Blueprint(ProxyMethods)
+      default do
+        name { 'I am Foo::Bar' }
+      end
+    end
+  end
 end
 
-describe ActiveRecord do
+describe "ProxyMethods" do
   describe ".make" do
     it "returns a proxy object" do
       Post.make.must_be_instance_of(JayZ::Post)
@@ -137,6 +166,43 @@ describe ActiveRecord do
     after do
       Post.delete_all
     end
+  end
 
+  describe "can handle classes namespaced by other classes" do
+    before do
+      @user = Author::User.make.save
+    end
+
+    it "returns a populated record" do
+      @user.must_be_instance_of(Author::User)
+      @user.name.must_equal "Anders is the user"
+    end
+
+    it "creates a author user record" do
+      Author::User.count.must_equal 1
+    end
+
+    after do
+      Author::User.delete_all
+    end
+  end
+
+  describe "handles classes namespace by an module" do
+    before do
+      @bar = Foo::Bar.make.save
+    end
+
+    it "returns a populated record" do
+      @bar.must_be_instance_of(Foo::Bar)
+      @bar.name.must_equal "I am Foo::Bar"
+    end
+
+    it "creates a bar record" do
+      Foo::Bar.count.must_equal 1
+    end
+
+    after do
+      Foo::Bar.delete_all
+    end
   end
 end

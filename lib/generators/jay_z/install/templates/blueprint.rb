@@ -3,7 +3,7 @@ module JayZ
   # Add your blueprints here.
   #
   # e.g.
-  #    class User < Blueprint(ActiveRecord)
+  #    class User < Blueprint(ProxyMethods)
   #      default do
   #        name { "Anders" }
   #        admin { false }
@@ -14,7 +14,7 @@ module JayZ
   #      end
   #    end
   #
-  #    class Post < Blueprint(ActiveRecord)
+  #    class Post < Blueprint(ProxyMethods)
   #      default do
   #        title { "Post #{sn}" }
   #        body  { "Lorem ipsum...#" }

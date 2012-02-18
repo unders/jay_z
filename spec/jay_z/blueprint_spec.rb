@@ -3,6 +3,9 @@ require 'jay_z/blueprint'
 require 'minitest/autorun'
 
 module JayZ
+  module Admin
+    class User < Blueprint; end
+  end
   class User < Blueprint; end
   class Comment < Blueprint; end
 end
@@ -20,6 +23,13 @@ class Comment
   extend JayZ
   attr_accessor :user
   attr_accessor :body
+end
+
+module Admin
+  class User
+    extend JayZ
+    attr_accessor :name
+  end
 end
 
 describe JayZ::Blueprint do
@@ -153,6 +163,20 @@ describe JayZ::Blueprint do
     it "executes the defined block when its method is called" do
       JayZ::Comment.default
       User.counter.must_equal  1
+    end
+  end
+
+  describe "can handle classes within a module namespace" do
+    before do
+      JayZ::Admin::User.default do
+        name { "Anders is admin" }
+      end
+    end
+
+    it "returns the correct object populated with the default values" do
+      user = Admin::User.make.new
+      user.must_be_instance_of(Admin::User)
+      user.name.must_equal "Anders is admin"
     end
   end
 end

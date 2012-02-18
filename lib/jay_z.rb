@@ -10,15 +10,17 @@ module JayZ
   end
 
   def make(*args)
-    JayZ.const_get(name).make(*args)
+    name.split('::').inject(JayZ) do |klass_level, name|
+      klass_level.const_get(name)
+    end.make(*args)
   end
 
-  module ActiveRecord
+  module ProxyMethods
     def new
       if @object.valid?
         @object
       else
-        fail ::ActiveRecord::RecordInvalid.new(@object)
+        fail ActiveRecord::RecordInvalid.new(@object)
       end
     end
 
