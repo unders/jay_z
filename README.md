@@ -3,7 +3,7 @@ JayZ is [![Stillmaintained](http://stillmaintained.com/images/abandoned.png)](ht
 
 
 # Abandoned
-* [Letterpress](https://github.com/unders/letterpress)
+* [Renamed to Letterpress](https://github.com/unders/letterpress)
 
 
 Examples
