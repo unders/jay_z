@@ -2,6 +2,9 @@ JayZ [![Stillmaintained](http://stillmaintained.com/images/abandoned.png)](http:
 ====
 
 
+# The Gem name has changed to:
+* [Letterpress](https://github.com/unders/letterpress)
+
 Where
 -----
 * [JayZ @ Github](http://github.com/unders/jay_z)
