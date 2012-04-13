@@ -1,4 +1,4 @@
-JayZ [![Stillmaintained](http://stillmaintained.com/images/abandoned.png)](http://stillmaintained.com/unders/jay_z) [![Build Status](http://travis-ci.org/unders/jay_z.png)](http://travis-ci.org/unders/jay_z)
+JayZ [![Stillmaintained](http://stillmaintained.com/images/abandoned.png)](http://stillmaintained.com/unders/jay_z), renamed to: [Letterpress](https://github.com/unders/letterpress)
 ====
 
 
