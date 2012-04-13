@@ -2,36 +2,9 @@ JayZ is [![Stillmaintained](http://stillmaintained.com/images/abandoned.png)](ht
 ====
 
 
-# The Gem name has changed to:
+# Abandoned
 * [Letterpress](https://github.com/unders/letterpress)
 
-Where
------
-* [JayZ @ Github](http://github.com/unders/jay_z)
-* [JayZ @ GemTesters](http://test.rubygems.org/gems/jay_z)
-* [JayZ @ Rubygems](http://rubygems.org/gems/jay_z)
-* [JayZ @ Rubydoc](http://rubydoc.info/gems/jay_z)
-
-Description:
------------
-
-A model factory. Say no to fixtures.
-Documentation is available at [rubydoc](http://rubydoc.info/gems/jay_z)
-
-Compatibility
--------------
-
-Ruby version 1.9.2 and 1.9.3 and Rails version 3.1
-
-[GemTesters](http://test.rubygems.org/gems/jay_z) has
- more information on which platforms the Gem is tested.
-
-Installation
-------------
-
-Install as a gem:
-
-    gem install jay_z
 
 Examples
 -------
@@ -95,13 +68,3 @@ Examples
           end
         end
 
-
-
-How to test the installed Gem
--------------------------
-
-    gem install rubygems-test
-    gem test jay_z
-
-
-For more info see: [GemTesters](http://test.rubygems.org/)
